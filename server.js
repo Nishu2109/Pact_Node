@@ -1,22 +1,19 @@
+// server.js
 const express = require("express");
 const app = express();
-const port = 8081;
 
-app.use(express.json());
-
-// ✅ Must match the Pact contract exactly
-const users = [
-  { id: 1, name: "Alice", email: "alice@example.com" }
-];
-
-// ✅ Route must be exactly /api/users
 app.get("/api/users", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.status(200).json(users);
+  res.status(200).json([
+    {
+      id: 1,
+      name: "Alice",
+      email: "alice@example.com"
+    }
+  ]);
 });
 
 if (require.main === module) {
-  app.listen(port, () => console.log(`✅ Provider running on port ${port}`));
+  app.listen(8081, () => console.log("✅ Provider API running on port 8081"));
 }
 
-module.exports = { app, port };
+module.exports = { app };
