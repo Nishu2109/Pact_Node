@@ -1,0 +1,23 @@
+{
+  "name": "pact-demo-consumer",
+  "version": "1.0.0",
+  "description": "Sample Pact Consumer Project",
+  "main": "index.js",
+  "scripts": {
+    "test:pact": "jest --runInBand",
+    "pact:publish": "pact-broker publish ./pacts --consumer-app-version 1.0.0 --broker-base-url http://localhost:9292",
+    "pact:verify": "jest pactProvider.spec.js --runInBand"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact": "^15.0.1",
+    "axios": "^1.13.2",
+    "express": "^5.1.0",
+    "jest": "^29.7.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
