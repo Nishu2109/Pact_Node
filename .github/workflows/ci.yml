@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: ✅ Run Consumer Pact Tests
-        run: npm run test:pact:verifify
+        run: npm run test:pact:verify
 
       - name: 📤 Publish Pact to Broker
         if: success()
