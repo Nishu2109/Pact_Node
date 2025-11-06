@@ -18,12 +18,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
       - name: 📦 Install dependencies
         run: npm ci
 
       - name: ✅ Run Consumer Pact Tests
-        run: npm test
+        run: npm run test:pact
 
       - name: 📤 Publish Pact to Broker
         if: success()
